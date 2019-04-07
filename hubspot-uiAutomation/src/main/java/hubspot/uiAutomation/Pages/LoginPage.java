@@ -31,7 +31,11 @@ public class LoginPage extends TestBase{
 		log.info("Setting Password - " + password + " ..");
 		passwordTxtbx.sendKeys(password);
 	}
-	
+
+	public void clickOnLoginBtn() {
+		log.info("Clicking on login button..");
+		loginBtn.click();
+	}
 	public String getLoginPageTitle() {
 		return driver.getTitle();
 	}

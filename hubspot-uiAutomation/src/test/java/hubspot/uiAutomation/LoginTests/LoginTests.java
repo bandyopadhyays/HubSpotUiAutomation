@@ -1,5 +1,7 @@
 package hubspot.uiAutomation.LoginTests;
 
+import hubspot.uiAutomation.Pages.HomePage;
+import hubspot.uiAutomation.Util.WebElementUtil;
 import org.apache.log4j.Logger;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -26,12 +28,18 @@ public class LoginTests extends TestBase {
 	@Test
 	public void tc_002_LoginWithValidCredentials() throws Exception {
 		LoginPage objLoginPage = new LoginPage();
+
+		HomePage objHomePage = new HomePage();
 		log.info("Starting test cases - " + "tc_002_LoginWithValidCredentials");		
 		objLoginPage.setEmailId(ExcelUtil.getDataFromExcel("Login","UserId/Email",1));
+		objLoginPage.setPassword(ExcelUtil.getDataFromExcel("Login","Password",1));
+		objLoginPage.clickOnLoginBtn();
+		Thread.sleep(10000);
+		objHomePage.isSuccessfullLogin();
+
 		
-		//PageObjects.getLoginPageObject().setEmailId(ExcelUtil.getDataFromExcel("Login","UserId/Email",1));
-		//PageObjects.getLoginPageObject().setPassword(ExcelUtil.getDataFromExcel("Login","Password",1));
-		//PageObjects.getLoginPageObject().
+
+
 	}
 
 	
