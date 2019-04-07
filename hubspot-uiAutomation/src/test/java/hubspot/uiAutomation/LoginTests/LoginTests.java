@@ -28,6 +28,7 @@ public class LoginTests extends TestBase {
 	@Test
 	public void tc_002_LoginWithValidCredentials() throws Exception {
 		LoginPage objLoginPage = new LoginPage();
+
 		HomePage objHomePage = new HomePage();
 		log.info("Starting test cases - " + "tc_002_LoginWithValidCredentials");		
 		objLoginPage.setEmailId(ExcelUtil.getDataFromExcel("Login","UserId/Email",1));
@@ -37,6 +38,7 @@ public class LoginTests extends TestBase {
 		objHomePage.isSuccessfullLogin();
 
 		
+
 
 	}
 
