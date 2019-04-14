@@ -9,4 +9,9 @@ public class ConfigReader implements AppConfig{
 		return PropertyFileReaderUtil.getProperty("URL");
 	}
 
+    @Override
+    public int getWaitTime() {
+        return Integer.valueOf(PropertyFileReaderUtil.getProperty("ExplicitWaitTime"));
+    }
+
 }

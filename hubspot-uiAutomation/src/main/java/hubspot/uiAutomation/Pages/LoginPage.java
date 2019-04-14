@@ -1,19 +1,22 @@
 package hubspot.uiAutomation.Pages;
 
+import hubspot.uiAutomation.TestBase.TestBase;
+import hubspot.uiAutomation.Util.LoggerUtil;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import hubspot.uiAutomation.TestBase.TestBase;
-import hubspot.uiAutomation.Util.LoggerUtil;
 
 public class LoginPage extends TestBase{
 
-	public LoginPage() {
+	private LoginPage() {
 		super();
-		//PageFactory.initElements(driver, this);
 	}
 
 	private final Logger log = LoggerUtil.getLogger(LoginPage.class);
+
+	public static LoginPage getLoginPageObject() {
+		return new LoginPage();
+	}
 
 	@FindBy(id = "username")
 	private WebElement emailIdtxtBx;
@@ -21,22 +24,25 @@ public class LoginPage extends TestBase{
 	private WebElement passwordTxtbx;
 	@FindBy(id = "loginBtn")
 	private WebElement loginBtn;
-	
-	public void setEmailId(String email) {
+
+	public LoginPage setEmailId(String email) {
 		log.info("Setting Email Id - " + email + " ..");
-		emailIdtxtBx.sendKeys(email);
+		this.emailIdtxtBx.sendKeys(email);
+		return this;
 	}
-	
-	public void setPassword(String password) {
+
+	public LoginPage setPassword(String password) {
 		log.info("Setting Password - " + password + " ..");
-		passwordTxtbx.sendKeys(password);
+		this.passwordTxtbx.sendKeys(password);
+		return this;
 	}
 
 	public void clickOnLoginBtn() {
 		log.info("Clicking on login button..");
-		loginBtn.click();
+		this.loginBtn.click();
 	}
 	public String getLoginPageTitle() {
 		return driver.getTitle();
 	}
+
 }
